@@ -5,7 +5,7 @@ const USUARIOSCHEMA = usuario.schema;
 var router = express.Router();
 var jwt = require("jsonwebtoken");
 
-
+/*metodo post*/
 router.post("/token", async(req, res, next) => {
   var params = req.body;
   var docs = await USUARIO.find({name: params.nombre, email: params.email, password: params.password});
@@ -23,7 +23,7 @@ router.post("/token", async(req, res, next) => {
     return;
   }
 });
-
+/*metodo post*/
 router.post("/usuario", async(req, res) => {
   var params = req.body;
   params["register"] = new Date();
@@ -32,7 +32,7 @@ router.post("/usuario", async(req, res) => {
   var result = await user.save();
   res.status(200).json(result);
 });
-
+/*metodo get*/
 router.get('/usuario',async(req,res, next) => {
   var params = req.query;
   var limit = 100;
